@@ -58,15 +58,15 @@ public class Agenda {
 
 			switch (escolha) {
 			case 1:
-				System.out.print("Digite o nome do compromisso: ");
+				System.out.print("Nome: ");
 				String nome = scanner.nextLine();
-				System.out.print("Digite a data do compromisso: ");
+				System.out.print("Data: ");
 				String data = scanner.nextLine();
-				System.out.print("Digite a hora do compromisso: ");
+				System.out.print("Hora: ");
 				String hora = scanner.nextLine();
-				System.out.print("Digite a descrição do compromisso: ");
+				System.out.print("Descrição: ");
 				String descricao = scanner.nextLine();
-				System.out.print("Digite a localização do compromisso: ");
+				System.out.print("Localização: ");
 				String localizacao = scanner.nextLine();
 
 				Compromisso novoCompromisso = new Compromisso(nome, data, hora, descricao, localizacao);
