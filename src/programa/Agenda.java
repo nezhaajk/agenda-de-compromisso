@@ -8,7 +8,7 @@ public class Agenda {
 
 	public void adicionarCompromisso(Compromisso compromisso) {
 		compromissos.add(compromisso);
-		System.out.println("Compromisso adicionado com sucesso!");
+		System.out.println("Compromisso cadastrado com sucesso!");
 	}
 
 	public void editarCompromisso(int indice, Compromisso novoCompromisso) {
@@ -58,15 +58,15 @@ public class Agenda {
 
 			switch (escolha) {
 			case 1:
-				System.out.print("Nome: ");
+				System.out.print("Digite o nome do compromisso: ");
 				String nome = scanner.nextLine();
-				System.out.print("Data: ");
+				System.out.print("Digite a data do compromisso: ");
 				String data = scanner.nextLine();
-				System.out.print("Hora: ");
+				System.out.print("Digite a hora do compromisso: ");
 				String hora = scanner.nextLine();
-				System.out.print("Descrição: ");
+				System.out.print("Digite a descrição do compromisso: ");
 				String descricao = scanner.nextLine();
-				System.out.print("Localização: ");
+				System.out.print("Digite a localização do compromisso: ");
 				String localizacao = scanner.nextLine();
 
 				Compromisso novoCompromisso = new Compromisso(nome, data, hora, descricao, localizacao);
@@ -75,19 +75,19 @@ public class Agenda {
 
 			case 2:
 				agenda.visualizarCompromissos();
-				System.out.print("Digite o índice do compromisso que deseja editar: ");
+				System.out.print("Digite o número do compromisso que deseja editar: ");
 				int indiceEditar = scanner.nextInt();
 				scanner.nextLine();
 
-				System.out.print("Nome: ");
+				System.out.print("Alteração do nome: ");
 				nome = scanner.nextLine();
-				System.out.print("Data: ");
+				System.out.print("Alteração da data: ");
 				data = scanner.nextLine();
-				System.out.print("Hora: ");
+				System.out.print("Alteração da hora: ");
 				hora = scanner.nextLine();
-				System.out.print("Descrição: ");
+				System.out.print("Alteracção da descrição: ");
 				descricao = scanner.nextLine();
-				System.out.print("Localização: ");
+				System.out.print("Alteração da localização: ");
 				localizacao = scanner.nextLine();
 
 				novoCompromisso = new Compromisso(nome, data, hora, descricao, localizacao);
@@ -105,6 +105,7 @@ public class Agenda {
 
 			case 4:
 				agenda.visualizarCompromissos();
+				//Inclusão do sleep
 				try {
 					Thread.sleep(10000);
 				} catch (InterruptedException e) {
@@ -118,7 +119,7 @@ public class Agenda {
 				System.exit(0);
 
 			default:
-				System.out.println("Opção inválida. Tente novamente.");
+				System.out.println("OPÇÃO INVÁLIDA! Tente novamente.");
 				break;
 			}
 		}

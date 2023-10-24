@@ -55,7 +55,6 @@ public class Compromisso {
 		this.localizacao = localizacao;
 	}
 
-	@Override
 	public String toString() {
 		return "Nome: " + nome + "\nData: " + data + "\nHora: " + hora + "\nDescrição: " + descricao + "\nLocalização: "
 				+ localizacao;
