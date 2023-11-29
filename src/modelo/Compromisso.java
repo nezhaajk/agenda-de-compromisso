@@ -1,25 +1,26 @@
 package modelo;
 
 public class Compromisso {
-	
+
 	private String nome;
 	private String data;
 	private String hora;
-	private String descricao;
 	private String localizacao;
-	
-	public Compromisso(String nome, String data, String hora, String descricao, String localizacao) {
+	private String descricao;
+
+	public Compromisso(String nome, String data, String hora, String localizacao,  String descricao) {
 		this.nome = nome;
 		this.data = data;
 		this.hora = hora;
-		this.descricao = descricao;
 		this.localizacao = localizacao;
+		this.descricao = descricao;
 
 	}
+
 	public Compromisso() {
-		
+
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -56,4 +57,3 @@ public class Compromisso {
 		return localizacao;
 	}
 }
-	

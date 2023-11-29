@@ -2,9 +2,8 @@ package modelo;
 
 import java.util.ArrayList;
 
-
 public interface IAgendaDAO {
-	
+
 	public boolean inserir(Compromisso p);
 
 	public boolean alterar(int indice, Compromisso novoCompromisso);

@@ -10,14 +10,13 @@ public class Agenda {
 //	private ArrayList<Compromisso> compromissos = new ArrayList<>();
 	private static AgendaDAO aDAO = AgendaDAO.getInstancia();
 	static int i;
-	
-	
+
 //	public boolean inserir(Compromisso c) {
 //		compromissos.add(c);
 //		System.out.println("Compromisso cadastrado com sucesso!");
 //		return false;
 //	}
-	
+
 //
 //	public void editarCompromisso(int indice, Compromisso novoCompromisso) {
 //		if (indice >= 0 && indice < aDAO.listarCompromissos().size()) {
@@ -53,62 +52,68 @@ public class Agenda {
 		Scanner scanner = new Scanner(System.in);
 
 		while (true) {
-			System.out.println("\nMenu:");
+			System.out.println("----------------------------------------");
+			System.out.println("Menu:");
 			System.out.println("1. Adicionar compromisso");
 			System.out.println("2. Editar compromisso");
 			System.out.println("3. Excluir compromisso");
 			System.out.println("4. Visualizar compromissos");
 			System.out.println("5. Encerrar programa");
-			System.out.print("Escolha uma opção: ");
+			System.out.print("Escolha uma opção: \n");
+			System.out.println("----------------------------------------");
 
 			int escolha = scanner.nextInt();
 			scanner.nextLine();
 
 			switch (escolha) {
 			case 1:
+				System.out.println("----------------------------------------");
 				System.out.print("Nome: ");
 				String nome = scanner.nextLine();
 				System.out.print("Data: ");
 				String data = scanner.nextLine();
 				System.out.print("Hora: ");
 				String hora = scanner.nextLine();
-				System.out.print("Descrição: ");
-				String descricao = scanner.nextLine();
 				System.out.print("Localização: ");
 				String localizacao = scanner.nextLine();
+				System.out.print("Descrição: ");
+				String descricao = scanner.nextLine();
+				System.out.println("----------------------------------------");
 
-				Compromisso novoCompromisso = new Compromisso(nome, data, hora, descricao, localizacao);
+				Compromisso novoCompromisso = new Compromisso(nome, data, hora, localizacao, descricao);
 				aDAO.inserir(novoCompromisso);
 				break;
 
 			case 2:
-				i=0;
+				i = 0;
 				for (Compromisso compromisso : aDAO.listarCompromissos()) {
-					System.out.println("Compromisso #" + i + ":\n");
+					System.out.println("\nCompromisso #" + i + ":");
 					System.out.println(compromisso.getNome());
 					System.out.println(compromisso.getData());
 					System.out.println(compromisso.getHora());
 					System.out.println(compromisso.getLocalizacao());
 					System.out.println(compromisso.getDescricao());
 					i++;
-					
+
 				}
 				System.out.print("Digite o número do compromisso que deseja editar: ");
 				int indiceEditar = scanner.nextInt();
 				scanner.nextLine();
-
-				System.out.print("Alteração do nome: ");
+				
+				System.out.println("----------------------------------------");
+				System.out.print("Alterar nome: ");
 				nome = scanner.nextLine();
-				System.out.print("Alteração da data: ");
+				System.out.print("Alterar data: ");
 				data = scanner.nextLine();
-				System.out.print("Alteração da hora: ");
+				System.out.print("Alterar hora: ");
 				hora = scanner.nextLine();
-				System.out.print("Alteracção da descrição: ");
-				descricao = scanner.nextLine();
-				System.out.print("Alteração da localização: ");
+				System.out.print("Alterar localização: ");
 				localizacao = scanner.nextLine();
+				System.out.print("Alterar descrição: ");
+				descricao = scanner.nextLine();
+				System.out.println("----------------------------------------");
 
-				novoCompromisso = new Compromisso(nome, data, hora, descricao, localizacao);
+				novoCompromisso = new Compromisso(nome, data, hora, localizacao, descricao);
 				aDAO.alterar(indiceEditar, novoCompromisso);
 				break;
 
@@ -123,21 +128,21 @@ public class Agenda {
 
 			case 4:
 				aDAO.listarCompromissos();
-				i=0;
+				i = 0;
 				for (Compromisso compromisso : aDAO.listarCompromissos()) {
-					System.out.println("Compromisso #" + i + ":\n" );
+					System.out.println("Compromisso - " + i + "");
 					System.out.println(compromisso.getNome());
 					System.out.println(compromisso.getData());
 					System.out.println(compromisso.getHora());
 					System.out.println(compromisso.getLocalizacao());
 					System.out.println(compromisso.getDescricao());
 					i++;
-					
+
 				}
 				break;
 
 			case 5:
-				System.out.println("Encerrando o programa.");
+				System.out.println("Encerrando o programa...");
 				scanner.close();
 				System.exit(0);
 

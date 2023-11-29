@@ -6,12 +6,11 @@ import modelo.Compromisso;
 import modelo.IAgendaDAO;
 
 public class AgendaDAO implements IAgendaDAO {
-	
+
 	private static ArrayList<Compromisso> compromissos = new ArrayList<>();
-	
+
 	private static AgendaDAO instancia;
 
-	
 	public static AgendaDAO getInstancia() {
 
 		if (instancia == null) {
@@ -21,7 +20,7 @@ public class AgendaDAO implements IAgendaDAO {
 
 		return instancia;
 	}
-	
+
 	@Override
 	public boolean inserir(Compromisso c) {
 		compromissos.add(c);
@@ -39,7 +38,7 @@ public class AgendaDAO implements IAgendaDAO {
 			System.out.println("Índice inválido. Nenhum compromisso foi editado.");
 			return false;
 		}
-		
+
 	}
 
 	@Override
@@ -52,7 +51,7 @@ public class AgendaDAO implements IAgendaDAO {
 			System.out.println("Índice inválido. Nenhum compromisso foi excluído.");
 			return false;
 		}
-		
+
 	}
 
 	@Override
@@ -60,9 +59,5 @@ public class AgendaDAO implements IAgendaDAO {
 		// TODO Auto-generated method stub
 		return compromissos;
 	}
-	
-	
-	
-
 
 }
