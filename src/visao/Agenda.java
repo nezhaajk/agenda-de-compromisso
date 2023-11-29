@@ -1,5 +1,6 @@
 package visao;
 
+import java.util.List;
 import java.util.Scanner;
 
 import controle.AgendaDAO;
@@ -44,39 +45,47 @@ public class Agenda {
 
 				Compromisso novoCompromisso = new Compromisso(nome, data, hora, localizacao, descricao);
 				aDAO.inserir(novoCompromisso);
+				System.out.println("Compromisso cadastrado com sucesso!");
 				break;
 
 			case 2:
 				i = 0;
-				for (Compromisso compromisso : aDAO.listarCompromissos()) {
-					System.out.println("\nCompromisso #" + i + ":");
+				List<Compromisso> compromissos = aDAO.listarCompromissos();
+
+				for (Compromisso compromisso : compromissos) {
+					System.out.println("\nCompromisso - " + i + ":");
 					System.out.println(compromisso.getNome());
 					System.out.println(compromisso.getData());
 					System.out.println(compromisso.getHora());
 					System.out.println(compromisso.getLocalizacao());
 					System.out.println(compromisso.getDescricao());
 					i++;
-
 				}
+
 				System.out.print("Digite o número do compromisso que deseja editar: ");
 				int indiceEditar = scanner.nextInt();
 				scanner.nextLine();
 
-				System.out.println("----------------------------------------");
-				System.out.print("Alterar nome: ");
-				nome = scanner.nextLine();
-				System.out.print("Alterar data: ");
-				data = scanner.nextLine();
-				System.out.print("Alterar hora: ");
-				hora = scanner.nextLine();
-				System.out.print("Alterar localização: ");
-				localizacao = scanner.nextLine();
-				System.out.print("Alterar descrição: ");
-				descricao = scanner.nextLine();
-				System.out.println("----------------------------------------");
+				if (indiceEditar >= 0 && indiceEditar < compromissos.size()) {
+					System.out.println("----------------------------------------");
+					System.out.print("Alterar nome: ");
+					nome = scanner.nextLine();
+					System.out.print("Alterar data: ");
+					data = scanner.nextLine();
+					System.out.print("Alterar hora: ");
+					hora = scanner.nextLine();
+					System.out.print("Alterar localização: ");
+					localizacao = scanner.nextLine();
+					System.out.print("Alterar descrição: ");
+					descricao = scanner.nextLine();
+					System.out.println("Compromisso editado com sucesso!");
+					System.out.println("----------------------------------------");
 
-				novoCompromisso = new Compromisso(nome, data, hora, localizacao, descricao);
-				aDAO.alterar(indiceEditar, novoCompromisso);
+					novoCompromisso = new Compromisso(nome, data, hora, localizacao, descricao);
+					aDAO.alterar(indiceEditar, novoCompromisso);
+				} else {
+					System.out.println("Índice inválido. Nenhuma alteração realizada.");
+				}
 				break;
 
 			case 3:
@@ -85,7 +94,12 @@ public class Agenda {
 				int indiceExcluir = scanner.nextInt();
 				scanner.nextLine();
 
-				aDAO.excluir(indiceExcluir);
+				if (indiceExcluir >= 0 && indiceExcluir < aDAO.listarCompromissos().size()) {
+					aDAO.excluir(indiceExcluir);
+					System.out.println("Compromisso excluído com sucesso!");
+				} else {
+					System.out.println("Índice inválido.");
+				}
 				break;
 
 			case 4:

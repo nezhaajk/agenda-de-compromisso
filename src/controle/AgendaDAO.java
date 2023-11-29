@@ -24,7 +24,6 @@ public class AgendaDAO implements IAgendaDAO {
 	@Override
 	public boolean inserir(Compromisso c) {
 		compromissos.add(c);
-		System.out.println("Compromisso cadastrado com sucesso!");
 		return false;
 	}
 
@@ -32,10 +31,8 @@ public class AgendaDAO implements IAgendaDAO {
 	public boolean alterar(int indice, Compromisso novoCompromisso) {
 		if (indice >= 0 && indice < compromissos.size()) {
 			compromissos.set(indice, novoCompromisso);
-			System.out.println("Compromisso editado com sucesso!");
 			return true;
 		} else {
-			System.out.println("Índice inválido. Nenhum compromisso foi editado.");
 			return false;
 		}
 
@@ -45,10 +42,8 @@ public class AgendaDAO implements IAgendaDAO {
 	public boolean excluir(int indice) {
 		if (indice >= 0 && indice < compromissos.size()) {
 			compromissos.remove(indice);
-			System.out.println("Compromisso excluído com sucesso!");
 			return true;
 		} else {
-			System.out.println("Índice inválido. Nenhum compromisso foi excluído.");
 			return false;
 		}
 
