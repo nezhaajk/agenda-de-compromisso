@@ -14,18 +14,20 @@ public class Compromisso {
 		this.hora = hora;
 		this.localizacao = localizacao;
 		this.descricao = descricao;
-
+		
+		//OS atributo tem get e set que permite acessar e modificar os atributos
+		// this diferencia atributo e paramentro da classe
 	}
 
 	public Compromisso() {
 
 	}
 
-	public String getNome() {
+	public String getNome() {  //retorna valor de nome
 		return nome;
 	}
 
-	public void setNome(String nome) {
+	public void setNome(String nome) { //define valor de nome
 		this.nome = nome;
 	}
 

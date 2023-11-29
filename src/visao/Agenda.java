@@ -1,51 +1,13 @@
 package visao;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import controle.AgendaDAO;
 import modelo.Compromisso;
 
 public class Agenda {
-//	private ArrayList<Compromisso> compromissos = new ArrayList<>();
 	private static AgendaDAO aDAO = AgendaDAO.getInstancia();
 	static int i;
-
-//	public boolean inserir(Compromisso c) {
-//		compromissos.add(c);
-//		System.out.println("Compromisso cadastrado com sucesso!");
-//		return false;
-//	}
-
-//
-//	public void editarCompromisso(int indice, Compromisso novoCompromisso) {
-//		if (indice >= 0 && indice < aDAO.listarCompromissos().size()) {
-//			aDAO.listarCompromissos().set(indice, novoCompromisso);
-//			System.out.println("Compromisso editado com sucesso!");
-//		} else {
-//			System.out.println("Índice inválido. Nenhum compromisso foi editado.");
-//		}
-//	}
-//
-//	public void excluirCompromisso(int indice) {
-//		if (indice >= 0 && indice < aDAO.listarCompromissos().size()) {
-//			aDAO.listarCompromissos().remove(indice);
-//			System.out.println("Compromisso excluído com sucesso!");
-//		} else {
-//			System.out.println("Índice inválido. Nenhum compromisso foi excluído.");
-//		}
-//	}
-
-//	public void visualizarCompromissos() {
-//		if (aDAO.listarCompromissos().isEmpty()) {
-//			System.out.println("A agenda está vazia.");
-//		} else {
-//			for (int i = 1; i < aDAO.listarCompromissos().size(); i++) {
-//				System.out.println("Compromisso #" + i + ":\n" + aDAO.listarCompromissos().get(i));
-//
-//			}
-//		}
-//	}
 
 	public static void main(String[] args) {
 		Agenda agenda = new Agenda();
@@ -99,7 +61,7 @@ public class Agenda {
 				System.out.print("Digite o número do compromisso que deseja editar: ");
 				int indiceEditar = scanner.nextInt();
 				scanner.nextLine();
-				
+
 				System.out.println("----------------------------------------");
 				System.out.print("Alterar nome: ");
 				nome = scanner.nextLine();
@@ -130,12 +92,14 @@ public class Agenda {
 				aDAO.listarCompromissos();
 				i = 0;
 				for (Compromisso compromisso : aDAO.listarCompromissos()) {
+					System.out.println("----------------------------------------");
 					System.out.println("Compromisso - " + i + "");
 					System.out.println(compromisso.getNome());
 					System.out.println(compromisso.getData());
 					System.out.println(compromisso.getHora());
 					System.out.println(compromisso.getLocalizacao());
 					System.out.println(compromisso.getDescricao());
+					System.out.println("----------------------------------------");
 					i++;
 
 				}

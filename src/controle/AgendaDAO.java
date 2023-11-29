@@ -1,6 +1,6 @@
 package controle;
 
-import java.util.ArrayList;
+import java.util.ArrayList; //importa a classe array
 
 import modelo.Compromisso;
 import modelo.IAgendaDAO;
@@ -11,7 +11,7 @@ public class AgendaDAO implements IAgendaDAO {
 
 	private static AgendaDAO instancia;
 
-	public static AgendaDAO getInstancia() {
+	public static AgendaDAO getInstancia() { //o método verifica se a instância já foi criada se não cria uma nova instância e retorna; se já existe, retorna a instância existente.
 
 		if (instancia == null) {
 			instancia = new AgendaDAO();
