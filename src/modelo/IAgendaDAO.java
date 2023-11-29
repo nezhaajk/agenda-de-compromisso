@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 
-public interface IAgendaDAO {
+public interface IAgendaDAO { //conjunto de métodos
 
 	public boolean inserir(Compromisso p);//adiciona um compromisso a lista
 
